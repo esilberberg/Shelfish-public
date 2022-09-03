@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="return">
+    <a onClick="javascript:history.go(-1);"><img src="{% static '/img/icons/back-arrow.svg' %}" alt="Go Back">Return</a>
+</div>
+
+<section class="book-record">
+    
+    <div class="book-record-cover">
+        {% if not book.cover_url %}
+        <img src="https://www.spl.org/Seattle-Public-Library/images/books-media/default-list-icons/default-book-icon.png" alt="Image of book cover">   
+        {% else %}
+        <img src="{{ book.cover_url }}" alt="Image of book cover">
+        {% endif %}
+    </div>
+    <div class="book-record-details">
+        <p><b>BOOK:</b></p>
+        <h1>{{book.title}}</h1>
+        <dl>
+            <dt>Author</dt>
+            <dd><a href="{% url 'catalog:author_detail' book.author.id %}">{{book.author.first_name}} {{book.author.surname}} ({{book.author.birth_year}} &#8211; {{book.author.death_year|default:" &nbsp;"}})</a></dd>
+            <dt>Publication Year</dt>
+            <dd>{{book.pub_year}}</dd>
+            <dt>Location</dt>
+            <dd>{{book.get_location_display}}</dd>
+            <dt>Subjects</dt>
+                {% for term in book.classification.all  %}
+                <dd><a href="{% url 'catalog:classification_detail' term.id %}">{{term}}</a></dd>
+                {% endfor %}
+            <dt>Language</dt>
+                {% for lang in book.language.all  %}
+                <dd><a href="{% url 'catalog:language_detail' lang.id %}">{{lang}}</a></dd>
+                {% endfor %}
+            <dt>Publisher</dt>
+            <dd>{{book.publisher}}</dd>
+            <dt>ISBN</dt>
+            <dd>{{book.isbn}}</dd>
+            <dt>Summary</dt>
+            <dd>{{book.summary}}</dd>
+            <br>
+            <dt>Links</dt>
+                <dd><a href="https://openlibrary.org/isbn/{{book.isbn}}.json">View Source Record <span class="material-icons" title="External Link" id="external">open_in_new</span></a></dd>
+        </dl>
+    </div>
+</section>
+{% endblock  %}

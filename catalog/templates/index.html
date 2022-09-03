@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<section class="search-catalog">
+  <h1>Welcome to the Silberberg Library</h1>
+  <form method=POST action="{% url 'catalog:search_books' %}">
+    {% csrf_token %}
+    <input type="search" aria-label="Search" placeholder="Search the catalog" name="searched">
+    <button title="GO" type="submit"><span class="material-icons" id="search">search</span></button>
+  </form>
+</section>
+
+<section class="book-gallery">
+{% if books %}
+  {% for book in books %}
+    <div class="card">
+      <a href="{% url 'catalog:book_detail' book.id %}">
+        <div class="book-cover">
+          {% if not book.cover_url %}
+          <img src="https://www.spl.org/Seattle-Public-Library/images/books-media/default-list-icons/default-book-icon.png" alt="{{ book.title }}" class="book-cover">   
+          {% else %}
+          <img src="{{ book.cover_url }}" alt="{{ book.title }}">
+          {% endif %}
+        </div>
+        <div class="card-container">
+          <p><b>{{ book.title }}</b></p> 
+          <p><i>{{book.author.first_name}} {{book.author.surname}}</i></p>
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+</section>
+{% else %}
+    <p>There are no books in the library.</p>
+{% endif %}
+
+{% endblock  %}

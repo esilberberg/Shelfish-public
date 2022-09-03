@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<section class="about">
+    <h1>About the Silberberg Library</h1>
+
+    <div class="about-image">
+        <img src="{% static '/img/eric_silberberg_cartoon.jpeg' %}" alt="Portrait of Eric Silberberg as a cartoon.">
+        <figcaption>
+            <a href="https://ericsilberberg.com" target="_blank" rel="noopener noreferrer">Eric Silberberg</a>, librarian.
+        </figcaption>
+    </div>
+
+    <p>Welcome to the online nexus for private collections of the Silberberg family. We currently have {{ num_books }} books in our catalog on a range of topics. The library grew out of 
+        <a href="#" target="_blank" rel="noopener noreferrer">Project Shelfish</a>, which is built with the Django 
+        framework. We wish to extend our thanks to the 
+        Internet Archive's <a href="https://openlibrary.org/" target="_blank" rel="noopener noreferrer">Open Library</a>, whose generous 
+        API is a component within our cataloging process.
+    </p>
+
+</section>
+
+{% endblock %}

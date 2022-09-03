@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="return">
+    <a onClick="javascript:history.go(-1);"><img src="{% static '/img/icons/back-arrow.svg' %}" alt="Go Back">Return</a>
+</div>
+
+<section class="results-container">
+    <h1>Classification: <i>&ldquo;{{classification.term}}&rdquo;</i></h1>
+
+    <table class="results">
+        {% for book in books %}
+            <tr>
+                <td><p class="counter">{{ forloop.counter }}</p></td>
+                <td>
+                    {% if not book.cover_url %}
+                    <img src="https://www.spl.org/Seattle-Public-Library/images/books-media/default-list-icons/default-book-icon.png" alt="Book cover">   
+                    {% else %}
+                    <img src="{{ book.cover_url }}" alt="Book cover">
+                    {% endif %}
+                </td>
+                <td class="bibliography"><p class="material">BOOK</p>
+                    <a href="{% url 'catalog:book_detail' book.id %}"><h2>{{ book.title }}</h2>       </a>
+                    <p>{{ book.author.first_name}} {{ book.author.surname}} ({{ book.author.birth_year}} &#8211; {{book.author.death_year|default:" &nbsp;"}})</p>
+                    <p>{{ book.publisher}} &#169;{{book.pub_year}}</p>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</section>
+
+{% endblock %}

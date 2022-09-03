@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+  
+{% block content %}
+{% load static %}
+
+
+
+{% if submitted %}
+    <section class="success-add-book">
+        <p>The book was submitted successfully!</p>
+        <p><a href="{% url 'catalog:add_book' %}">Add another.</a></p>
+    </section>
+{% else %}
+    <section class="add-book">
+        <h1>Add Book to Catalog</h1>
+        <div class="isbn-assist">
+            <h2>ISBN Assistant</h2>
+            <p>Scan or enter the book's ISBN and let <a href="https://openlibrary.org/">Open Library</a> populate the form below.</p>
+            <div class="isbn-input">
+                <input title="Enter the ISBN" type="text" name="populate" id="populate" placeholder="ISBN">
+                <button title="Populate" onclick="isbnAssist(document.getElementById('populate').value)"><span class="material-icons" id="cloud_download">cloud_download</span></button>
+            </div>
+        </div>
+    
+        <div class="add-book-form">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <h2>New Book</h2>
+                <p><i>Elements in bold are required.</i></p>
+            
+                {{ book_form.as_p }}
+                <br>
+                <h2>Author</h2>
+                {{ author_form.as_p }}
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+{% endif %}
+{% endblock %}

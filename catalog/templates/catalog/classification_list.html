@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+<section class="classification-system">
+  <h1>Classification System</h1>
+  <div class="classes">
+    <div class="class">
+      <div class="class-header">
+        <span class="material-icons">tonality</span>
+        <h2>Content</h2>
+      </div>
+      {% if content %}
+      <ul>
+        {% for c in content %}
+          <li>
+            <a href="{% url 'catalog:classification_detail' c.id %}">{{ c.term }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+        <p>The classification system is not ready.</p>
+      {% endif %}
+    </div>
+    <div class="class">
+      <div class="class-header">
+        <span class="material-icons">public</span>
+        <h2>Geography</h2>
+      </div>
+        {% if geography %}
+        <ul>
+          {% for g in geography %}
+            <li>
+              <a href="{% url 'catalog:classification_detail' g.id %}">{{ g.term }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+          <p>The classification system is not ready.</p>
+        {% endif %}
+    </div>
+    <div class="class">
+      <div class="class-header">
+        <span class="material-icons">offline_bolt</span>
+        <h2>Subject</h2>
+      </div>
+      {% if subject %}
+      <ul>
+        {% for s in subject %}
+          <li>
+            <a href="{% url 'catalog:classification_detail' s.id %}">{{ s.term }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+        <p>The classification system is not ready.</p>
+      {% endif %}
+    </div>
+    <div class="class">
+      <div class="class-header">
+        <span class="material-icons">language</span>
+        <h2>Language</h2>
+      </div>
+      {% if language %}
+      <ul>
+        {% for lang in language %}
+          <li> 
+            <a href="{% url 'catalog:language_detail' lang.id %}">{{ lang.name }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+        <p>There are no languages at this time.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+
+
+ 
+
+
+{% endblock %}
