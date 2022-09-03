@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<section class="librarian-login">
+
+    <h1>Librarians</h1>
+
+    <form action="" method=POST>
+        {% csrf_token %}
+        <label for ="username">Username:</label>
+        <input type="text" name="username">
+        <label for ="username">Password:</label>
+        <input type="password" name="password">
+        <input type="submit" value="Log In">
+    </form>
+    
+</section>
+
+{% endblock %}
