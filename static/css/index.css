@@ -1,0 +1,102 @@
+.search-catalog {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: #1b4282;
+    border-radius: 5px;
+    padding: 40px;
+    color: var(--light);
+    margin: 50px 10px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.search-catalog h1 {
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: var(--light);
+}
+
+.search-catalog form {
+    display: flex;
+}
+
+.search-catalog input {
+    border: 0;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    outline: 0;
+}
+
+.search-catalog input:focus {
+    outline: none; 
+    border: 3px solid var(--secondary);
+}
+
+.search-catalog button {
+    margin: 0;
+    color: var(--main);
+    border: 0;
+    border-left: 2px solid var(--main-light);
+    padding-left: 3px;
+    background-color: white;
+    transition: background-color 0.2s ease-out;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+#search {
+    font-size: 35px;
+    padding-top: 8px;
+    color: var(--main-light)
+}
+
+.search-catalog button:hover {
+    background-color: var(--secondary);
+}
+
+.book-gallery {
+    list-style-type: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 40px 20px;
+}
+
+.card a {
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.card {
+    max-width: 180px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    cursor: pointer;
+}
+  
+.card:hover {
+    box-shadow: 0 16px 16px 0 rgba(0,0,0,0.2);
+}
+  
+.card-container {
+    padding: 0 16px 10px 16px;
+    width: 150px;
+    line-height: 1.1;
+}
+
+.book-cover {
+    overflow: hidden;
+}
+
+.book-cover img {
+    display: block;
+    margin: 10px auto;
+    border: 1px solid var(--main-light);
+    height: 200px;
+    width: 90%;
+}
+
+

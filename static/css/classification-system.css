@@ -1,0 +1,38 @@
+.classification-system h1 {
+    text-align: center;
+    font-size: 32px;
+}
+
+.classification-system ul {
+    list-style: none;
+}
+
+.classes {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.classes h2 {
+    padding-bottom: 10px;
+}
+
+.class {
+    margin: 30px 10px;
+    padding: 20px 30px;
+    border: 1px solid var(--main);
+    border-radius: 5px;
+}
+.class-header {
+    text-align: center;
+}
+
+
+.class a {
+    color: var(--link);
+}
+
+.class a:hover {
+    color: var(--secondary)
+}

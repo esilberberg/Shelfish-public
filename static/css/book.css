@@ -1,0 +1,42 @@
+.book-record {
+    padding: 20px;
+    display: flex;
+}
+
+.book-record-cover img {
+    width: 100%;
+    min-width: 200px;
+    border: 1px solid var(--main);
+}
+
+.book-record-details {
+    padding-left: 20px;
+}
+
+.book-record-details h1 {
+    font-size: 38px;
+    padding-bottom: 30px;
+}
+
+.book-record-details dt {
+    font-weight: 700;
+}
+
+.book-record-details dd {
+    padding-left: 30px;
+}
+
+.book-record-details a {
+    color: var(--link);
+}
+
+.book-record-details a:hover {
+    color: var(--secondary)
+}
+.book-record-details dt dd a span {
+    font-size: 16px !important;
+}
+
+#external {
+    font-size: 15px;
+}

@@ -1,0 +1,152 @@
+:root {
+    --main: #0d2650;
+    --main-light: #1b4282;
+    --dark: #0a1f40;
+    --light: #FEFFF1;
+    --secondary:#FFC107;
+    --link: blue;
+    --light-gray: #f2f2f2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+h1 {
+    font-family: 'Aboreto', cursive;
+    font-size: 36px;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+nav, footer {
+    background-color: var(--main);
+
+}
+
+nav {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+nav ul {
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+
+nav li {
+    float: left; 
+}
+
+nav .material-icons {
+    font-size: 32px;
+}
+
+.push {
+    margin-right: auto;
+}
+
+nav li a {
+    height: 100%;
+    color: var(--light);
+    transition: color 0.2s ease-out;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding-right: 20px;
+}
+
+nav li a:hover {
+    color: var(--secondary);
+}
+
+.push .nav-icon {
+    width: 200px;
+    padding: 10px 0 5px 20px;
+}
+
+nav ul, footer ul {
+    max-width: 1200px;
+    margin: 0 auto;
+    list-style-type: none;
+}
+
+footer ul {
+    text-align: right;
+    padding: 20px 20px 20px 0;
+}
+
+footer a {
+    font-family: 'Aboreto', cursive;
+    text-decoration: none;
+    color: var(--light);
+    transition: color 0.2s ease-out;
+}
+
+footer a:hover {
+    color: var(--secondary)
+}
+
+main {
+    max-width: 900px;
+    margin: 30px auto 80px auto;
+    flex-grow: 1;
+}
+
+.alert {
+    padding: 20px;
+    background-color: #FFF3CD;
+    color: var(--main);
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: var(--main);
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: var(--link)
+}
+
+.return {
+    padding: 0 0 20px 20px;
+}
+
+.return a {
+    cursor: pointer;
+    font-family: 'Aboreto', cursive;
+    font-weight: 800;
+    color: black;
+    font-size: 20px;
+    display: flex;
+    align-items:center;
+    background-color: var(--light-gray);
+    width: fit-content;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+
+.return img {
+    width: 30px;
+}
+
+.return a:hover {
+    background-color: var(--secondary);
+}

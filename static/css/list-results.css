@@ -1,0 +1,54 @@
+.results-container h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.results {
+    width: 100%;
+    border-collapse:separate;
+    border-spacing:0 20px;
+    padding: 0 20px;
+}
+
+.results tr {
+    background-color: var(--light-gray);
+
+}
+
+.results tr:hover {
+    background-color: lightgray;
+}
+
+.results td {
+    padding: 20px;
+}
+
+.results td img {
+    width: 50px;
+}
+
+.results td a {
+    text-decoration: none;
+    color: var(--link)
+}
+
+.results td a:hover {
+    text-decoration: underline;
+}
+
+.counter {
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.material {
+    font-weight: 800;
+    font-size: 12px;
+}
+
+.author-name {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 700;
+}

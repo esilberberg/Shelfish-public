@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page metadata -->
+    <meta name="description" content="Complete recordings of the Adelphi Brothers">
+    <meta name="keywords" content="family band, siblings, brothers">
+    <meta name="author" content="eric silberberg | ericsilberberg.com">
+
+    {% load static %}
+    <!-- Social metadata -->
+    <meta property="og:title" content="The Silberberg Library" />
+    <meta property="og:description" content="Online nexus of the Silberberg private collections." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https//:library.ericsilberberg.com" />
+    <meta property="og:image" content="{% static '/img/icons/SL-logo-vert.png' %}" />
+
+    <meta name="twitter:title" content="The Silberberg Library">
+    <meta name="twitter:description" content="Online nexus of the Silberberg private collections.">
+    <meta name="twitter:image" content="{% static '/img/icons/SL-logo-vert.png' %}">
+    <meta name="twitter:card" content="{% static '/img/icons/SL-logo-vert.png' %}">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/img/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/img/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/img/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static '/img/favicon/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static '/img/favicon/safari-pinned-tab.svg' %}" color="#0028dd">
+    <link rel="shortcut icon" href="{% static '/img/favicon/favicon.ico' %}">
+    <meta name="apple-mobile-web-app-title" content="Silberberg Library">
+    <meta name="application-name" content="Silberberg Library">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-config" content="{% static '/img/favicon/browserconfig.xml' %}">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Google Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <!-- ISBN Assistant -->
+    <script src="{% static '/js/isbn_assist.js' %}"></script>
+
+    <!-- Custom stylesheets -->
+    <link rel="stylesheet" href="{% static '/css/base.css' %}">
+    <link rel="stylesheet" href="{% static '/css/index.css' %}">
+    <link rel="stylesheet" href="{% static '/css/about.css' %}">
+    <link rel="stylesheet" href="{% static '/css/book.css' %}">
+    <link rel="stylesheet" href="{% static '/css/classification-system.css' %}">
+    <link rel="stylesheet" href="{% static '/css/list-results.css' %}">
+    <link rel="stylesheet" href="{% static '/css/forms.css' %}">
+
+
+
+    <title>Silberberg Library</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav>
+            <ul>
+                <li class="push">
+                    <a href="{% url 'catalog:index' %}">
+                        <img src="{% static '/img/icons/SL-logo-horiz.svg' %}" alt="Silberberg Library" class="nav-icon">
+                    </a>
+                </li>
+                <li title="Classification System">
+                    <a href="{% url 'catalog:classification' %}">
+                        <span class="material-icons" id="classification">dataset</span>
+                    </a>
+                </li>
+
+                {% if user.is_authenticated %}
+                <li title="Add Book">
+                    <a href="{% url 'catalog:add_book' %}">
+                        <span class="material-icons">library_add</span>
+                    </a>
+                </li>
+                <li title="Log Out">
+                    <a href="{% url 'librarians:logout' %}">
+                        <span class="material-icons">logout</span>
+                    </a>
+                </li>
+
+                {% else %}
+                <li title="Log In">
+                    <a href="{% url 'librarians:login' %}">
+                        <span class="material-icons">account_box</span>
+                    </a>
+                </li>
+                
+                {% endif %}
+            </ul> 
+        </nav>
+        <main>
+            {% if messages %}
+                {%for message in messages %}
+                <div class="alert">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                    {{ message }}
+                </div>  
+                {% endfor %}
+            {% endif %}
+                
+            {% block content %}
+            {% endblock %}
+
+        </main>
+        <footer>
+            <ul>
+                <li><a href="{% url 'catalog:about' %}">About the Library</a></li>
+                <li><a href="{% url 'admin:index' %}">Admin Portal</a></li>
+                <li><a href="https://ericsilberberg.com">&copy;2022  Eric Silberberg</a></li>
+            </ul>
+        </footer>
+    </div>
+</body>
+</html>

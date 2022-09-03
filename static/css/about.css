@@ -1,0 +1,42 @@
+.about {
+    padding: 20px;
+    text-align: center;
+}
+
+.about a {
+    text-decoration: none;
+    color: var(--link);
+}
+
+.about a:hover {
+    color:var(--secondary);
+    transition: 0.2s ease-in-out;
+}
+
+.about h1 {
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+}
+
+.about-image {
+    width: 30%;
+    text-align: center;
+    font-style: italic;
+    font-size: smaller;
+    text-indent: 0;
+    border: 1px solid silver;
+    border-radius: 5px;
+    margin: 2.5em auto;
+    padding: 0.5em;
+}
+
+.about-image img {
+    width: 100%;
+}
+
+.about p {
+    width: 80%;
+    margin: 0 auto; 
+}
+
+
